@@ -59,6 +59,3 @@ typings/
 
 # next.js build output
 .next
-
-# Avoid commiting the build folder
-build
