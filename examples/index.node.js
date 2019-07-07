@@ -1,4 +1,4 @@
-const storage = require('../lib/index.umd.js');
+const storage = require('../lib/index.cjs.js');
 const example = require('./example.umd.js');
 
 example(storage);

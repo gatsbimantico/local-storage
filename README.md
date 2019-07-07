@@ -3,18 +3,19 @@ localStorage: Async, isomorphic and with fallbacks
 
 ## Installation
 
-`npm i --save gatsbimantico/local-storage`
+`npm i --save gatsbimantico/local-storage#1.0.0-alpha`
+`yarn add gatsbimantico/local-storage#1.0.0-alpha`
 
 ## Motivation
 
 - Preventing errors due to access localStorage from window:
-  When accessing localStorage from window and attempting to use its methods
+  When accessing localStorage from window and attempting to use its methods,
   you're risking to break your whole application if the user is
   using private mode or a browser not compatible
 
 - Preventing blocking the main thread:
-  localStorage by default is a syncronous action
-  sometimes you may require the localStorage to be set before proceeding
+  localStorage by default is a syncronous action.
+  Sometimes you may require the localStorage to be set before proceeding,
   but I assumed that in most of the scenarios doesn't need to be that way
 
 ## Usage
@@ -36,11 +37,18 @@ The getItem method is syncronous.
 ```
 import storage from 'local-storage';
 
+// wait for your localStorage
 Promise.all([
   storage.setItem('action', 'Hello'),
   storage.setItem('name', 'world')
-]).then(async () => {
-  console.log(`${storage.getItem(`action`)}, ${storage.getItem(`name`)}!`);
+]).then(() => {
+  // get it syncronously
+  const action = storage.getItem(`action`);
+  const name = storage.getItem(`name`);
+  console.log(`${action}, ${name}!`);
+
+  // or let it run free
+  storage.clear();
 });
 ```
 
@@ -57,4 +65,5 @@ Promise.all([
 Then check the console log at:
 
 http://localhost:5000/examples/index.browser.esm (ES6 modules)
+
 http://localhost:5000/examples/index.browser.umd (namespaced global library at window['local-storage'])

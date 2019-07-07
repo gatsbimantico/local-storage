@@ -8,7 +8,8 @@
     "lib"
   ],
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "mocha --exit"
   },
   "husky": {
     "hooks": {
@@ -17,7 +18,9 @@
   },
   "devDependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "^0.9.0",
+    "chai": "^4.2.0",
     "husky": "^3.0.0",
+    "mocha": "^6.1.4",
     "rollup": "^1.16.6",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.1.0"
