@@ -1,9 +1,10 @@
-# local-storage
+# local-storage ![Latest build status](https://travis-ci.com/gatsbimantico/local-storage.svg?branch=master)
 localStorage: Async, isomorphic and with fallbacks
 
 ## Installation
 
 `npm i --save gatsbimantico/local-storage#1.0.0-alpha`
+
 `yarn add gatsbimantico/local-storage#1.0.0-alpha`
 
 ## Motivation
@@ -22,35 +23,18 @@ localStorage: Async, isomorphic and with fallbacks
 
 Just import it and use as if it was the native API from the browser (even in node!).
 
-Be aware of the async execution.
-
 ```
-storage.setItem('name', 'world')
-storage.getItem('name')
+class Storage {
+  async setItem(key, value); // saves the value for one key
+  getItem(key); // synconously (for easy of use) retrieves the value for one key
+  async removeItem(key); // removes one key and its value
+  async clear(); // removes all the keys and values
+}
 ```
-doesn't necessarily return 'world'.
-
-The getItem method is syncronous.
 
 ### Example
 
-```
-import storage from 'local-storage';
-
-// wait for your localStorage
-Promise.all([
-  storage.setItem('action', 'Hello'),
-  storage.setItem('name', 'world')
-]).then(() => {
-  // get it syncronously
-  const action = storage.getItem(`action`);
-  const name = storage.getItem(`name`);
-  console.log(`${action}, ${name}!`);
-
-  // or let it run free
-  storage.clear();
-});
-```
+![Code example](https://pbs.twimg.com/media/D-3N3riVUAEMbCC?format=jpg&name=medium)
 
 ## Run the examples
 
