@@ -1,0 +1,35 @@
+{
+  "name": "local-storage",
+  "version": "1.0.0",
+  "description": "localStorage: async, isomorphic and with fallbacks",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "husky": {
+    "hooks": {
+      "pre-publish": "build"
+    }
+  },
+  "devDependencies": {
+    "@ampproject/rollup-plugin-closure-compiler": "^0.9.0",
+    "husky": "^3.0.0",
+    "rollup": "^1.16.6",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gatsbimantico/local-storage.git"
+  },
+  "author": "Cesar Costas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gatsbimantico/local-storage/issues"
+  },
+  "homepage": "https://github.com/gatsbimantico/local-storage#readme"
+}
