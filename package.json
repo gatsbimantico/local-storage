@@ -1,0 +1,20 @@
+{
+  "name": "local-storage-gh-pages",
+  "version": "1.0.0",
+  "description": "localStorage: Async, isomorphic and with fallbacks",
+  "main": "index.js",
+  "devDependencies": {
+  },
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gatsbimantico/local-storage.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gatsbimantico/local-storage/issues"
+  },
+  "homepage": "https://github.com/gatsbimantico/local-storage#readme"
+}
