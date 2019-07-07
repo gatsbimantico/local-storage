@@ -34,20 +34,12 @@ class Storage {
 
 ### Example
 
-![Code example](https://pbs.twimg.com/media/D-3N3riVUAEMbCC?format=jpg&name=medium)
+![Code example](https://pbs.twimg.com/media/D-3N3riVUAEMbCC?format=jpg&name=small)
 
-## Run the examples
+## Run the tests
 
-### Node
+`npm run test` will use mocha and chai to check the functionality.
 
-`node ./examples/index.node.js`
+## Run the website
 
-### Browser
-
-`npx server`
-
-Then check the console log at:
-
-http://localhost:5000/examples/index.browser.esm (ES6 modules)
-
-http://localhost:5000/examples/index.browser.umd (namespaced global library at window['local-storage'])
+Switch to branch `gh-pages`
