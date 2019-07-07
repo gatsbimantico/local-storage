@@ -19,8 +19,19 @@ localStorage: Async, isomorphic and with fallbacks
 
 ## Usage
 
-Just import it and use as if it was the native API from the browser (even in node!),
-but be aware of the async return.
+Just import it and use as if it was the native API from the browser (even in node!).
+
+Be aware of the async execution.
+
+```
+storage.setItem('name', 'world')
+storage.getItem('name')
+```
+doesn't necessarily return 'world'.
+
+The getItem method is syncronous.
+
+### Example
 
 ```
 import storage from 'local-storage';
@@ -29,7 +40,7 @@ Promise.all([
   storage.setItem('action', 'Hello'),
   storage.setItem('name', 'world')
 ]).then(async () => {
-  console.log(`${await storage.getItem(`action`)}, ${await storage.getItem(`name`)}!`);
+  console.log(`${storage.getItem(`action`)}, ${storage.getItem(`name`)}!`);
 });
 ```
 
@@ -44,5 +55,6 @@ Promise.all([
 `npx server`
 
 Then check the console log at:
+
 http://localhost:5000/examples/index.browser.esm (ES6 modules)
 http://localhost:5000/examples/index.browser.umd (namespaced global library at window['local-storage'])

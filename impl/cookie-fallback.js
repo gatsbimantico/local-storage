@@ -1,12 +1,12 @@
 function getLSCookie() {
   const value = document.cookie.match(/__ls-db=(.*)LS_END/);
-  return (value && value[1]) ? decodeURIComponent(value[1]) : {};
+  return (value && value[1]) ? JSON.parse(decodeURIComponent(value[1])) : {};
 }
 
 function setLSCookie(db, exdays = 7) {
   const date = new Date();
   date.setTime(date.getTime() + (exdays * 864e5));
-  document.cookie = `__ls-db=${encodeURIComponent(db)}LS_END; expires=${date.toUTCString()}; path=/`;
+  document.cookie = `__ls-db=${encodeURIComponent(JSON.stringify(db))}LS_END; expires=${date.toUTCString()}; path=/`;
 }
 
 export default class CookieFallback {
@@ -25,10 +25,8 @@ export default class CookieFallback {
     });
   }
 
-  async getItem(key) {
-    return new Promise(res => {
-      res(getLSCookie()[key]);
-    });
+  getItem(key) {
+    return getLSCookie()[key];
   }
 
   async removeItem(key) {

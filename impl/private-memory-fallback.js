@@ -8,10 +8,8 @@ export default class PrivateMemoryFallback {
     });
   }
 
-  async getItem(key) {
-    return new Promise(res => {
-      res(internalLocalStorage[key]);
-    });
+  getItem(key) {
+    return internalLocalStorage[key];
   }
 
   async removeItem(key) {

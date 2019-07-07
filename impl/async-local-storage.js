@@ -6,10 +6,8 @@ export default class AsyncLocalStorage {
     });
   }
 
-  async getItem(key) {
-    return new Promise(res => {
-      res(window.localStorage.getItem(key));
-    });
+  getItem(key) {
+    return window.localStorage.getItem(key);
   }
 
   async removeItem(key) {
