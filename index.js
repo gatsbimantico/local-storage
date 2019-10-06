@@ -1,7 +1,9 @@
 import AsyncLocalStorage from './impl/async-local-storage';
 import CookieFallback from './impl/cookie-fallback';
+import EmptyHandler from './impl/empty-handler';
 import PrivateMemoryFallback from './impl/private-memory-fallback';
 
+let isNode = false;
 let isBrowser = false;
 let isLocalStorageAvailable = false;
 
@@ -23,6 +25,13 @@ if (typeof window !== 'undefined') {
   }
 }
 
+if (
+  !isBrowser && typeof process === 'object' &&
+  typeof process.versions === 'object' && typeof process.versions.node !== 'undefined'
+) {
+  isNode = true;
+}
+
 /**
  * STORAGE
  * - in the browser and with localStorage available: returns an async localStorage
@@ -34,6 +43,8 @@ if (isBrowser && isLocalStorageAvailable) {
   StorageConstructor = AsyncLocalStorage;
 } else if (isBrowser) {
   StorageConstructor = CookieFallback;
+} else if (isNode) {
+  StorageConstructor = EmptyHandler;
 } else {
   StorageConstructor = PrivateMemoryFallback;
 }

@@ -6,15 +6,15 @@ describe('storage', () => {
     it('should set the value to one key', async () => {
       await storage.setItem('key', 'val');
       await storage.setItem('key', 'value');
-      expect(storage.getItem('key')).to.equal('value');
+      expect(storage.getItem('key')).to.equal(undefined);
     });
   });
   describe('getItem', () => {
     it('should return the value for one key', async () => {
       await storage.setItem('key1', 'value1');
       await storage.setItem('key2', 'value2');
-      expect(storage.getItem('key1')).to.equal('value1');
-      expect(storage.getItem('key2')).to.equal('value2');
+      expect(storage.getItem('key1')).to.equal(undefined);
+      expect(storage.getItem('key2')).to.equal(undefined);
     });
   });
   describe('removeItem', () => {
@@ -23,7 +23,7 @@ describe('storage', () => {
       await storage.setItem('key2', 'value2');
       await storage.removeItem('key1');
       expect(storage.getItem('key1')).to.equal(undefined);
-      expect(storage.getItem('key2')).to.equal('value2');
+      expect(storage.getItem('key2')).to.equal(undefined);
     });
   });
   describe('clear', () => {
