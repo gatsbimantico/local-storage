@@ -3,9 +3,9 @@ localStorage: Async, isomorphic and with fallbacks
 
 ## Installation
 
-`npm i --save gatsbimantico/local-storage#1.0.0-alpha`
+`npm i --save github:gatsbimantico/local-storage#1.0.0`
 
-`yarn add gatsbimantico/local-storage#1.0.0-alpha`
+`yarn add github:gatsbimantico/local-storage#1.0.0`
 
 ## Motivation
 
